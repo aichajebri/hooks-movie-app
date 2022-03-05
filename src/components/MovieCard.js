@@ -2,19 +2,19 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import ReactStars from "react-rating-stars-component";
+import { Link } from "react-router-dom";
 function MovieCard({ movie }) {
   return (
     <div>
       {
-        <Card style={{ width: "18rem" }}>
+        <Card style={{ width: "18rem", margin: "10px" }}>
           <Card.Img
             variant="top"
             src={movie.posterURL}
             alt="blabla"
             style={{
               width: "285px",
-              height: "454px",
-              margin: "0px",
+              height: "350px",
             }}
           />
           <Card.Body style={{ display: "flex", flexDirection: "column" }}>
@@ -40,10 +40,14 @@ function MovieCard({ movie }) {
             >
               {movie.description}
             </Card.Text>
-
-            <Button variant="outline-secondary" style={{ alignSelf: "center" }}>
-              See trailer
-            </Button>
+            <Link to={`${movie.title}/description/${movie.id}`}>
+              <Button
+                variant="outline-secondary"
+                style={{ alignSelf: "center" }}
+              >
+                See trailer
+              </Button>
+            </Link>
           </Card.Body>
         </Card>
       }

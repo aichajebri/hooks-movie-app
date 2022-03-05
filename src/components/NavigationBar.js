@@ -72,9 +72,6 @@ export default function NavigationBar({
         />
       </div>
       <AddMovie setmoviename={setmoviename} moviename={moviename} />
-      <Button variant="outline-secondary" style={{ marginLeft: "20px" }}>
-        Reset
-      </Button>
     </Navbar>
   );
 }

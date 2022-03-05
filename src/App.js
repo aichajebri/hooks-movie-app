@@ -1,30 +1,13 @@
-import "./App.css";
 import React from "react";
-import MovieInfo from "./components/MovieInfo";
-import MovieList from "./components/MovieList";
-import NavigationBar from "./components/NavigationBar.js";
-
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Description from "./components/movie description/Description";
 function App() {
-  const [moviename, setmoviename] = React.useState(MovieInfo);
-  const [titlesearch, settitlesearch] = React.useState("");
-  const [ratingsearch, setratingsearch] = React.useState(0);
-
   return (
-    <div className="App">
-      <NavigationBar
-        titlesearch={titlesearch}
-        ratingsearch={ratingsearch}
-        moviename={moviename}
-        setmoviename={setmoviename}
-        settitlesearch={settitlesearch}
-        setratingsearch={setratingsearch}
-      />
-      <MovieList
-        moviename={moviename}
-        titlesearch={titlesearch}
-        ratingsearch={ratingsearch}
-      />
-    </div>
+    <Routes>
+      <Route path="/" exact element={<Home />} />
+      <Route path="/:title/description/:id" exact element={<Description />} />
+    </Routes>
   );
 }
 
